@@ -9,7 +9,7 @@ public class BikeController {
     private Handler createNewBike = ctx ->{
         Bike newBike = ctx.bodyAsClass(Bike.class);
         try {
-            ctx
+            ctx.()
         }
     }
 }
