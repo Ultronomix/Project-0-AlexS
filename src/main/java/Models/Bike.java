@@ -1,21 +1,28 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Bike {
+public class Bike implements Serializable {
     private String name;
     private String color;
 
     private String year;
 
-    public String getName() {
-        return name;
+    public Bike(){
+
     }
+
+
 
     public Bike(String name, String color, String year) {
         this.name = name;
         this.color = color;
         this.year = year;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Bike setName(String name) {
