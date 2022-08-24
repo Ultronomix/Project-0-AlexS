@@ -6,8 +6,8 @@ public class Driver {
 
         Javalin app = Javalin.create().start(8080);
 
-        app.get("/");
-        app.post("./");
+        app.get("/bikes",bikeController.getAllBikes);
+        app.post("/bikes/new",bikeController.createBike);
 
 
             }
