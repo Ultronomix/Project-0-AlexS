@@ -2,26 +2,26 @@ package Controller;
 
 import Models.Bike;
 import Service.BikeService;
-
+import io.javalin.http.Handler;
 
 import java.util.List;
-import java.util.logging.Handler;
+
 
 public class BikeController {
-    public final BikeService bikeService = new BikeService();
+    private final BikeService bikeService = new BikeService();
 
     public Handler createNewBike = ctx -> {
         Bike newBike = ctx.bodyAsClass(Bike.class);
-        Boolean success = bikeService.createBike(newBike);
+        boolean success = bikeService.createBike(newBike);
         if (success) {
-            ctx.status(HttpStatus.CREATED_201);
+            ctx.status(HttpStatus.CREATED_201).result("Bike created!");
         } else {
-            ctx.status(400).result("could not create bike");
+            ctx.status(400).result("Could not create bike");
         }
     };
     public Handler getAllBikes = ctx -> {
         List<Bike> bikes = bikeService.getAllBikes();
-        ctx.json(200).json(bikes);
+        ctx.status(200).json(bikes);
 
     };
 }
