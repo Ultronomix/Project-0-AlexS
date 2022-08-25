@@ -12,11 +12,11 @@ public class BikeController {
 
     public Handler createNewBike = ctx -> {
         Bike newBike = ctx.bodyAsClass(Bike.class);
-        boolean success = bikeService.createBike(newBike);
-        if (success) {
-            ctx.status(HttpStatus.CREATED_201).result("Bike created!");
-        } else {
+        try {
+            ctx.json(bikeService.createBike(newBike));
+        }catch (NullPointerException e){
             ctx.status(400).result("Could not create bike");
+
         }
     };
     public Handler getAllBikes = ctx -> {
