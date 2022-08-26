@@ -13,7 +13,7 @@ public class BikeController {
     public Handler createNewBike = ctx -> {
         Bike newBike = ctx.bodyAsClass(Bike.class);
         try {
-            ctx.json(bikeService.createBike(newBike));
+            ctx.json(bikeService. createBike(newBike));
         }catch (NullPointerException e){
             ctx.status(400).result("Could not create bike");
 

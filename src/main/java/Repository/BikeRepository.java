@@ -13,7 +13,7 @@ import java.util.List;
 public class BikeRepository  implements  DAO<Bike> {
     @Override
     public Bike create(Bike bike){
-        String sql = "insert into bikes(name,color,year), values(?,?,?,?)";
+        String sql = "insert into bikes(name,color,year) values(?,?,?,?)";
         try(Connection connection = ConnectionUtility.getInstance()){
             PreparedStatement stmt = connection.prepareStatement(sql);
                 stmt.setString(1, bike.getName());
