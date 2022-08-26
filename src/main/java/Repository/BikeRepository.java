@@ -31,7 +31,7 @@ public class BikeRepository  implements  DAO<Bike> {
     @Override
     public List<Bike> getAll(){
         List<Bike> bikes = new ArrayList<>();
-        String sql = "select * from bikes";
+        String sql = "select *from bikes";
         try(Connection connection = ConnectionUtility.getInstance()){
             PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -40,7 +40,7 @@ public class BikeRepository  implements  DAO<Bike> {
                 Bike bike = new Bike();
                 bike.setName(rs.getString("name"));
                 bike.setColor(rs.getString("color"));
-                bike.setName(rs.getString("name"));
+                bike.setYear(rs.getString("year"));
 
                 bikes.add(bike);
             }
